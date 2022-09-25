@@ -1,0 +1,5 @@
+train: ../train/images
+val: ../valid/images
+
+nc: 5
+names: ['cung dinh', 'gau do', 'hao hao', 'omachi 102', 'omachi spaghetti']
