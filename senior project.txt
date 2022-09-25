@@ -1,0 +1,38 @@
+Khó khăn: 
+	- Cài đặt: Nơi lắp camera, cần đảm bảo đủ độ tương phản để nhìn rõ các vật
+	- Giao thức: Profinet, Ethernet/IP và Modbus
+
+*Note:	
+		- LabVIEW
+		- Tìm hiểu về YOLO, Resnet, CNN, Object Detection, Machine learning
+		- non-max suppression -> Lựa ra bounding box có xác suất đúng cao nhất
+	
+Báo cáo thứ 3 - 14h hàng tuần
+		
+Nguồn tài liệu tham khảo:
+https://www.youtube.com/watch?v=rbY4QU298Ec : Phân loại sản phẩm
+https://vcc-tech.vn/co-ban-cach-lap-trinh-va-dieu-khien-canh-tay-robot-cong-nghiep.html : Cánh tay robot trong công nghiệp
+https://temas.vn/en/blog/techman-robot-tm-robot-leading-the-trend-of-collaborative-robots : Đọc mã vạch
+https://baoanjsc.com.vn/tin-hang/ung-dung-cua-dau-doc-ma-vach---camera-cognex-tronCâng-nganh-cong-nghiep-dien--dien-tu_2_1_31573_vn.aspx : Ứng dụng camera 
+https://tantienhitech.com/tich-hop-camera-trong-ung-dung-robot : Ứng dụng camera vision
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9002941/
+
+Code:
+python train.py --img 640 --batch 16 --epochs 5 --data coco128.yaml --weights yolov5s.pt
+python detect.py --weights runs\train\exp2\weights\last.pt --img 640 --conf 0.1 --source 0
+
+–img 640: là size ảnh các bạn đưa vào.
+
+–data dataset.yaml : truyền vào file chứa địa chỉ của dataset.
+
+–weights yolov5s.pt : cấu hình model train. các bạn có thể thay thế bằng các model khác:–weights yolov5m.pt; –weights yolov5l.pt; –weights yolov5x.pt
+
+–source image_z.png: là địa chỉ ảnh đưa vào predict. #source 0 là webcam
+
+–weights runs/train/exp12/weights/best.pt: địa chỉ file trọng số chúng ta vừa train xong
+
+–conf 0.25 : ngưỡng phân loại, bạn có thể tùy chỉnh từ 0 -> 1
+
+
+
+
